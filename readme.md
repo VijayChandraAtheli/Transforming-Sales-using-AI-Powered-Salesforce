@@ -7,6 +7,10 @@ Seamlessly integrate Google's Gemini AI into Salesforce Sales Cloud to generate 
 [![Salesforce](https://img.shields.io/badge/Salesforce-Sales%20Cloud-00A1E0?logo=salesforce)](https://www.salesforce.com/)
 [![Google Gemini](https://img.shields.io/badge/Google-Gemini%202.5%20Flash-4285F4?logo=google)](https://ai.google.dev/)
 
+<video width="1000" controls>
+  <source src="Project_Demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 ---
 
 ## 🚧 **Upcoming Enhancements**
