@@ -1,0 +1,92 @@
+<template>
+    <lightning-card title="AI Email Generator" icon-name="standard:email">
+        <div class="slds-p-around_medium">
+            
+            <!-- Tone Selector -->
+            <div class="slds-m-bottom_small">
+                <lightning-combobox
+                    name="tone"
+                    label="Email Tone"
+                    value={selectedTone}
+                    placeholder="Select tone"
+                    options={toneOptions}
+                    onchange={handleToneChange}
+                    disabled={isLoading}
+                ></lightning-combobox>
+            </div>
+
+            <!-- Generate Button -->
+            <div class="slds-m-bottom_medium">
+                <lightning-button
+                    variant="brand"
+                    label="Generate Email"
+                    title="Generate AI-powered email"
+                    onclick={handleGenerate}
+                    disabled={isLoading}
+                    icon-name="utility:new"
+                ></lightning-button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <template if:true={isLoading}>
+                <div class="slds-m-vertical_medium">
+                    <lightning-spinner 
+                        alternative-text="Generating email with AI..." 
+                        size="medium"
+                    ></lightning-spinner>
+                    <p class="slds-text-align_center slds-m-top_small">
+                        Generating your personalized email...
+                    </p>
+                </div>
+            </template>
+
+            <!-- Generated Email Display -->
+            <template if:true={showEmail}>
+                <div class="slds-m-top_medium">
+                    
+                    <!-- Email Content -->
+                    <lightning-textarea
+                        label="Generated Email"
+                        value={generatedEmail}
+                        onchange={handleEmailChange}
+                        rows="15"
+                        class="email-textarea"
+                    ></lightning-textarea>
+
+                    <!-- Action Buttons -->
+                    <div class="slds-m-top_small button-group">
+                        <lightning-button
+                            variant="neutral"
+                            label="Copy to Clipboard"
+                            title="Copy email to clipboard"
+                            icon-name="utility:copy"
+                            onclick={handleCopy}
+                            class="slds-m-right_small"
+                        ></lightning-button>
+                        
+                        <lightning-button
+                            variant="brand"
+                            label="Regenerate"
+                            title="Generate a new email"
+                            icon-name="utility:refresh"
+                            onclick={handleGenerate}
+                        ></lightning-button>
+                    </div>
+
+                    <!-- Usage Tip -->
+                    <div class="slds-m-top_small">
+                        <lightning-icon 
+                            icon-name="utility:info" 
+                            size="x-small"
+                            class="slds-m-right_x-small"
+                        ></lightning-icon>
+                        <span class="slds-text-color_weak slds-text-body_small">
+                            Tip: You can edit the email directly in the text area before copying.
+                        </span>
+                    </div>
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,8 @@
+.email-textarea {
+    font-family: 'Courier New', monospace;
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+}
